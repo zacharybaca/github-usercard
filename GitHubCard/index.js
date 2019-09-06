@@ -59,14 +59,31 @@ function Card (obj) {
   const card = document.createElement('div');
   const imageSource = document.createElement('img');
   const cardInfo = document.createElement('div');
-  const userName = document.createElement('h3');
-  const name = document.createElement('p');
+  const name = document.createElement('h3');
+  const userName = document.createElement('p');
   const userLocation = document.createElement('p');
   const userProfile = document.createElement('p');
   const gitHubLink = document.createElement('a');
   const userFollowers = document.createElement('p');
   const userFollowing = document.createElement('p');
   const userBio = document.createElement('p');
+
+  //Add Class Names
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  name.classList.add('name');
+  userName.classList.add('username');
+
+  //Add Text Content
+  imageSource.src = data.avatar_url;
+  name.textContent = data.name;
+  userName.textContent = data.login;
+  userLocation.textContent = data.location;
+  userProfile.textContent = data.url;
+  gitHubLink.href = data.html_url;
+  userFollowers.textContent = data.followers;
+  userFollowing.textContent = data.following;
+  userBio.textContent = data.bio;
 }
 
 /* List of LS Instructors Github username's: 
