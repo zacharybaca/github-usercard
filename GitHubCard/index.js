@@ -2,10 +2,10 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-axios.get("https://api.github.com/users/zacharybaca")
+ axios.get("https://api.github.com/users/zacharybaca")
   .then(response => {
     console.log(response);
-
+    cards.appendChild(Card(response.data));
   })
   .catch(err => {
     console.log(err);
@@ -54,6 +54,8 @@ const followersArray = [];
 
 */
 
+const cards = document.querySelector('.cards');
+
 function Card (obj) {
   //Create Elements
   const card = document.createElement('div');
@@ -75,15 +77,15 @@ function Card (obj) {
   userName.classList.add('username');
 
   //Add Text Content
-  imageSource.src = data.avatar_url;
-  name.textContent = data.name;
-  userName.textContent = data.login;
-  userLocation.textContent = data.location;
-  userProfile.textContent = data.url;
-  gitHubLink.href = data.html_url;
-  userFollowers.textContent = data.followers;
-  userFollowing.textContent = data.following;
-  userBio.textContent = data.bio;
+  imageSource.src = `${obj.avatar_url}`;
+  name.textContent = `${obj.name}`;
+  userName.textContent = `${obj.login}`;
+  userLocation.textContent = `${obj.location}`;
+  userProfile.textContent = `${obj.url}`;
+  gitHubLink.href = `${obj.html_url}`;
+  userFollowers.textContent = `${obj.followers}`;
+  userFollowing.textContent = `${obj.following}`;
+  userBio.textContent = `${obj.bio}`;
 
   //Link Elements
   card.appendChild(imageSource);
@@ -96,6 +98,8 @@ function Card (obj) {
   cardInfo.appendChild(userFollowing);
   cardInfo.appendChild(userBio);
   userProfile.appendChild(gitHubLink);
+
+  return card;
 }
 
 /* List of LS Instructors Github username's: 
