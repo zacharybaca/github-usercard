@@ -84,6 +84,18 @@ function Card (obj) {
   userFollowers.textContent = data.followers;
   userFollowing.textContent = data.following;
   userBio.textContent = data.bio;
+
+  //Link Elements
+  card.appendChild(imageSource);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(userName);
+  cardInfo.appendChild(userLocation);
+  cardInfo.appendChild(userProfile);
+  cardInfo.appendChild(userFollowers);
+  cardInfo.appendChild(userFollowing);
+  cardInfo.appendChild(userBio);
+  userProfile.appendChild(gitHubLink);
 }
 
 /* List of LS Instructors Github username's: 
